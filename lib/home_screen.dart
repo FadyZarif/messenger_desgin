@@ -19,18 +19,15 @@ class HomeScreen extends StatelessWidget {
                   backgroundImage: AssetImage("assets/3.jpg"),
                   radius: 20,
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.only(end: 2),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 10,
-                  ),
+                CircleAvatar(
+                  backgroundColor: Colors.black,
+                  radius: 8,
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.red,
-                  radius: 9,
+                  radius: 7,
                   child:
-                      Text('2', style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text('2', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10)),
                 ),
               ],
             ),
@@ -96,10 +93,10 @@ class HomeScreen extends StatelessWidget {
               ),
               Container(
                 height: 100,
-                  child: ListView.separated(
-                    separatorBuilder: (context,i)=> VerticalDivider(),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context,i)=> buildRowStories(),itemCount: 10,),
+                child: ListView.separated(
+                  separatorBuilder: (context,i)=> VerticalDivider(),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context,i)=> buildRowStories(),itemCount: 10,),
               ),
               const SizedBox(
                 height: 15,
