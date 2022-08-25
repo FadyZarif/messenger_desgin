@@ -1,3 +1,4 @@
+import 'package:abdullah_mansour/users_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: UsersScreen(),
     );
   }
 }
