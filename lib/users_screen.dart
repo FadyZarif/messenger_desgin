@@ -43,14 +43,15 @@ class _UsersScreenState extends State<UsersScreen> {
   }
 }
 
-Widget buildUsersList(UsersModel userData){
+Widget buildUsersList(UsersModel userData) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
-    children:  [
+    children: [
       CircleAvatar(
         backgroundColor: Colors.blue,
         radius: 30,
-        child: Text("${userData.id}",style: const TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.bold),),
+        child: Text("${userData.id}", style: const TextStyle(
+            fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),),
       ),
       const SizedBox(
         width: 20,
@@ -61,10 +62,16 @@ Widget buildUsersList(UsersModel userData){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:  [
-              Text(userData.name,maxLines: 1,overflow: TextOverflow.ellipsis,style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-              const Divider(thickness: 0,color: Colors.transparent,height: 7,),
-              Text(userData.number,maxLines: 1,overflow: TextOverflow.ellipsis,style: const TextStyle(fontSize: 15,color: Colors.grey),)
+            children: [
+              Text(userData.name, maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold)),
+              const Divider(
+                thickness: 0, color: Colors.transparent, height: 7,),
+              Text(userData.number, maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontSize: 15, color: Colors.grey),)
             ],
           ),
         ),
@@ -72,4 +79,3 @@ Widget buildUsersList(UsersModel userData){
     ],
   );
 }
-
