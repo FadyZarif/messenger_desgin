@@ -1,8 +1,7 @@
-<<<<<<< Updated upstream
-=======
+
 import 'package:abdullah_mansour/counter_screen.dart';
 import 'package:abdullah_mansour/users_screen.dart';
->>>>>>> Stashed changes
+
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
@@ -32,11 +31,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-<<<<<<< Updated upstream
-      home: const HomeScreen(),
-=======
       home: CounterScreen(),
->>>>>>> Stashed changes
     );
   }
 }
