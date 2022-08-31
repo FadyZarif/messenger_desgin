@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:abdullah_mansour/bmi_result_screen.dart';
+import 'package:abdullah_mansour/shared/components/components.dart';
 import 'package:flutter/material.dart';
 
 class BmiScreen extends StatefulWidget {
@@ -12,8 +13,9 @@ class BmiScreen extends StatefulWidget {
 
 class _BmiScreenState extends State<BmiScreen> {
   var isMale;
-  int age=25,weight=60;
-  double height=150.0;
+  int age = 25, weight = 60;
+  double height = 150.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,15 +34,19 @@ class _BmiScreenState extends State<BmiScreen> {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: (){
-                        setState((){
+                      onTap: () {
+                        setState(() {
                           isMale = true;
                         });
                       },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: isMale == null? const Color(0xff1b2031): isMale?  Colors.pink : const Color(0xff1b2031),
+                          color: isMale == null
+                              ? const Color(0xff1b2031)
+                              : isMale
+                                  ? Colors.pink
+                                  : const Color(0xff1b2031),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -54,8 +60,8 @@ class _BmiScreenState extends State<BmiScreen> {
                               height: 5,
                             ),
                             Text("MALE",
-                                style:
-                                TextStyle(fontSize: 18, color: Colors.grey)),
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.grey)),
                           ],
                         ),
                       ),
@@ -66,16 +72,19 @@ class _BmiScreenState extends State<BmiScreen> {
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: (){
-                        setState((){
+                      onTap: () {
+                        setState(() {
                           isMale = false;
                         });
                       },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: isMale == null? const Color(0xff1b2031): !isMale?  Colors.pink : const Color(0xff1b2031),
-
+                          color: isMale == null
+                              ? const Color(0xff1b2031)
+                              : !isMale
+                                  ? Colors.pink
+                                  : const Color(0xff1b2031),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -89,8 +98,8 @@ class _BmiScreenState extends State<BmiScreen> {
                               height: 5,
                             ),
                             Text("FEMALE",
-                                style:
-                                TextStyle(fontSize: 18, color: Colors.grey)),
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.grey)),
                           ],
                         ),
                       ),
@@ -122,7 +131,7 @@ class _BmiScreenState extends State<BmiScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
-                      children:  [
+                      children: [
                         Text(
                           "${height.round()}",
                           style: const TextStyle(
@@ -139,8 +148,8 @@ class _BmiScreenState extends State<BmiScreen> {
                     Slider(
                       value: height,
                       onChanged: (value) {
-                        setState((){
-                          height=value;
+                        setState(() {
+                          height = value;
                         });
                       },
                       min: 80,
@@ -170,11 +179,11 @@ class _BmiScreenState extends State<BmiScreen> {
                         children: [
                           const Text("WEIGHT",
                               style:
-                              TextStyle(fontSize: 20, color: Colors.grey)),
+                                  TextStyle(fontSize: 20, color: Colors.grey)),
                           const SizedBox(
                             height: 5,
                           ),
-                           Text(
+                          Text(
                             "$weight",
                             style: const TextStyle(
                                 fontSize: 40,
@@ -189,7 +198,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             children: [
                               FloatingActionButton(
                                 onPressed: () {
-                                  setState((){});
+                                  setState(() {});
                                   --weight;
                                 },
                                 mini: true,
@@ -204,7 +213,7 @@ class _BmiScreenState extends State<BmiScreen> {
                               ),
                               FloatingActionButton(
                                 onPressed: () {
-                                  setState((){});
+                                  setState(() {});
                                   ++weight;
                                 },
                                 mini: true,
@@ -234,11 +243,11 @@ class _BmiScreenState extends State<BmiScreen> {
                         children: [
                           const Text("AGE",
                               style:
-                              TextStyle(fontSize: 20, color: Colors.grey)),
+                                  TextStyle(fontSize: 20, color: Colors.grey)),
                           const SizedBox(
                             height: 5,
                           ),
-                           Text(
+                          Text(
                             "$age",
                             style: const TextStyle(
                                 fontSize: 40,
@@ -253,7 +262,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             children: [
                               FloatingActionButton(
                                 onPressed: () {
-                                  setState((){});
+                                  setState(() {});
                                   --age;
                                 },
                                 mini: true,
@@ -268,7 +277,7 @@ class _BmiScreenState extends State<BmiScreen> {
                               ),
                               FloatingActionButton(
                                 onPressed: () {
-                                  setState((){});
+                                  setState(() {});
                                   ++age;
                                 },
                                 mini: true,
@@ -288,29 +297,19 @@ class _BmiScreenState extends State<BmiScreen> {
               ),
             ),
           ),
-          Container(
-            width: double.infinity,
-            child: MaterialButton(
-              onPressed: () {
-                double result = weight / pow(height / 100, 2);
-                Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (context)=>BMIResultScreen(isMale: isMale,age: age,result: result,)
-                    )
-                );
-              },
-              height: 50.0,
-              color: Colors.pink,
-              child: const Text(
-                "CALCULATE",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18
-                ),
-              ),
-            ),
-          ),
+          defaultButton(
+            text: 'CALCULATE',
+            function: () {
+            double result = weight / pow(height / 100, 2);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => BMIResultScreen(
+                          isMale: isMale,
+                          age: age,
+                          result: result,
+                        )));
+          })
         ],
       ),
     );
