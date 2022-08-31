@@ -1,3 +1,4 @@
+import 'package:abdullah_mansour/login_screen.dart';
 import 'package:abdullah_mansour/users_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: UsersScreen(),
+      home: LoginScreen(),
     );
   }
 }
