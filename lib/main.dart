@@ -1,13 +1,16 @@
 
 import 'package:abdullah_mansour/counter/counter_screen.dart';
+import 'package:bloc/bloc.dart';
 
 
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
+import 'shared/bloc_observer.dart';
 
 void main() {
   runApp(const MyApp());
+  Bloc.observer = MyBlocObserver();
 }
 
 class MyApp extends StatelessWidget {
